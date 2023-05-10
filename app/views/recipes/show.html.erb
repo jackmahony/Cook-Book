@@ -1,0 +1,31 @@
+<% if notice.present? %>
+  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<% end %>
+
+<%= render @recipe %>
+
+<% if @recipe.user == current_user %>
+  <%= link_to 'Edit this recipe', edit_recipe_path(@recipe) %>
+  <div class="inline-block ml-2">
+    <%= button_to 'Destroy this recipe', recipe_path(@recipe), method: :delete %>
+  </div>
+<% end %>
+
+<% if user_signed_in? %>
+<% if current_user.favourites.exists?(recipe_id: @recipe.id) %>
+  <%= turbo_frame_tag "favourite" do %>
+    <%= button_to favourite_path(recipe_id: @recipe.id), method: :delete, class: "unbookmark" do %>
+      <%= image_tag "unfavourite.svg", alt: "Unfavourite" %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= turbo_frame_tag "favourite" do %>
+    <%= button_to favourites_path(recipe_id: @recipe.id), class: "bookmark", method: :post do %>
+      <%= image_tag "favourite.svg", alt: "Favourite" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% end %>
+
+<%= link_to 'Back to recipes', recipes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

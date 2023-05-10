@@ -1,0 +1,52 @@
+<%= form_with(model: recipe, class: "contents") do |form| %>
+  <% if recipe.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="my-5">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :category %>
+    <%= form.select :category,[["Breakfast"], ["Lunch"],["Dinner"],["Sweet Treats"],["Snacks"] ], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+<div class="my-5">
+    <%= form.label :serving_size %>
+    <%= form.select :serving,[["1-2"],["2-4"],["4-6"],["6-8",],["8-10"],["10+"]], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :cooktime %>
+    <%= form.number_field :cooktime, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <%# <div class="my-5">
+    <%= form.label :healthrating %>
+    <%# <%= form.number_field :healthrating, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <%# </div> %> 
+
+  <%# <div class="my-5">
+    <%= form.label :difficulty %>
+    <%# <%= form.number_field :difficulty, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %> 
+  <%# </div> %> 
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

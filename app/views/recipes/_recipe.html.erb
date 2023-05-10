@@ -1,0 +1,51 @@
+<div id="<%= dom_id recipe %>">
+  <% if recipe.image.attached? %>
+    <%= image_tag recipe.image, alt: recipe.name, class: "recipe-image" %>
+  <% end %>
+  
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= recipe.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Category:</strong>
+    <%= recipe.category %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Cooktime:</strong>
+    <%= recipe.cooktime %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Serving:</strong>
+    <%= recipe.serving %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Healthrating:</strong>
+    <%= recipe.healthrating %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Difficulty:</strong>
+    <%= recipe.difficulty %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Chef:</strong>
+    <%= recipe.user.username %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show", recipe, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% if recipe.user == current_user %>
+        <%= link_to 'Edit', edit_recipe_path(recipe), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>    
+
+   
+
+    <hr class="mt-6">
+  <% end %>
+</div>
