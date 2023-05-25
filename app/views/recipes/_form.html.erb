@@ -23,7 +23,8 @@
 
   <div class="my-5">
     <%= form.label :description %>
-    <%= form.text_area :description, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_area :description, class: "tinymce", triggerSave: true  %>
+    <%= tinymce %>
   </div>
 
   <div class="my-5">
@@ -41,17 +42,9 @@
     <%= form.number_field :cooktime, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <%# <div class="my-5">
-    <%= form.label :healthrating %>
-    <%# <%= form.number_field :healthrating, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  <%# </div> %> 
-
-  <%# <div class="my-5">
-    <%= form.label :difficulty %>
-    <%# <%= form.number_field :difficulty, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %> 
-  <%# </div> %> 
-
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>
+
+
