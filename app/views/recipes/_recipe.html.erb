@@ -1,11 +1,18 @@
-<div id="<%= dom_id recipe %>">
+<div id="<%= dom_id recipe %>" data-controller= "share" data-share-url-value="<%= recipe_url(recipe) %>">
   <% if recipe.image.attached? %>
     <%= image_tag recipe.image, alt: recipe.name, class: "recipe-image" %>
   <% end %>
   
   <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
-    <%= recipe.name %>
+    <%= content_tag(:p, recipe.name, data: {
+      share_target: "name"
+    }) %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= recipe.description %>
   </p>
 
   <p class="my-5">
@@ -43,9 +50,15 @@
     <% if recipe.user == current_user %>
         <%= link_to 'Edit', edit_recipe_path(recipe), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <% end %>    
-
-   
-
     <hr class="mt-6">
   <% end %>
+
+  <%= button_to  "Share", "", data: {
+    action: "click->share#share"
+  } %>
+
+  <%= content_tag(:p, "", class: "result", data: {
+    share_target: "result"
+  }) %>
+
 </div>
