@@ -13,18 +13,12 @@
   
   <div class="my-5">
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, :default => "favourite.svg" %>
   </div>
 
   <div class="my-5">
     <%= form.label :name %>
     <%= form.text_field :name, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: "tinymce", triggerSave: true  %>
-    <%= tinymce %>
   </div>
 
   <div class="my-5">
@@ -40,6 +34,12 @@
   <div class="my-5">
     <%= form.label :cooktime %>
     <%= form.number_field :cooktime, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+   
+  <div class="my-5">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "tinymce", triggerSave: true  %>
+    <%= tinymce %>
   </div>
 
   <div class="inline">

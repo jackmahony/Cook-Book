@@ -14,9 +14,6 @@
  *= require_self
  */
 
- body {
-  
- }
 
  nav {
    background-color: #fff;
@@ -36,36 +33,40 @@
 
  .main-body {
     max-width: 1250px;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+
  }
 
 .bookmark {
   background: url('bookmark.svg') no-repeat;
   background-size: contain;
+  display: flex;
 }
 
 .unbookmark {
   background: url('unbookmark.svg') no-repeat;
   background-size: contain;
+  display: flex;
 }
 
 .recipe-image {
-  width: 250px; /* Set a fixed width */
-  height: 250px; /* Set a fixed height */
+  width: 250px;
+  height: 250px; 
   object-fit: cover;
-  border-radius: 10%;
+  border-radius: 5%;
 }
 
 #recipes {
   display: flex;
   flex-wrap: wrap;
-  align-content: stretch;
-
-  /* justify-content: center; */
+  align-content: space-between;
 }
 
 #recipe-card {
-  /* display: flex; */
   margin: .8em;
 }
 
@@ -86,6 +87,11 @@ h2 {
   font-weight: 500;
 }
 
+#recipe-name {
+  font-size: 22px;
+  font-weight: 600;
+}
+
 .login {
   display: flex;
   flex-direction: column;
@@ -96,5 +102,47 @@ h2 {
 
 #new-recipe-form {
   max-width: 575px;
+}
 
+.delete-btn,
+.edit-btn,
+.fav-btn,
+.share-btn {
+  display: flex;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.delete-btn {
+  color:#e44650;
+}
+
+.edit-btn,
+.fav-btn,
+.share-btn {
+  color: #4010de;
+}
+
+.stats {
+  display: flex;
+}
+
+.stats > p  {
+  margin-right: 2em;
+}
+
+@media (max-width: 555px) {
+  #recipes {
+    flex-direction: column;
+  }
+
+  .recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 2.5%;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
 }

@@ -4,17 +4,21 @@
   <% end %>
   
   <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= content_tag(:p, recipe.name, data: {
+    <%= content_tag(:p, recipe.name, id:"recipe-name", data: {
       share_target: "name"
     }) %>
   </p>
+  
+  <div class="username">
+    <%= recipe.user.username %>
+  </div>
 
+  
   <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
     <%= recipe.description %>
   </p>
-
+  
+<div class ="stats">
   <p class="my-5">
     <strong class="block font-medium mb-1">Category:</strong>
     <%= recipe.category %>
@@ -40,11 +44,7 @@
     <%= recipe.difficulty %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Chef:</strong>
-    <%= recipe.user.username %>
-  </p>
-
+</div>
   <% if action_name != "show" %>
     <%= link_to "Show", recipe, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <% if recipe.user == current_user %>
@@ -52,13 +52,14 @@
     <% end %>    
     <hr class="mt-6">
   <% end %>
+  <div class="share-btn">
+    <%= image_tag "share.svg", alt: "share" %>
+    <%= button_to  "Share", "", data: {
+      action: "click->share#share"
+    } %>
 
-  <%= button_to  "Share", "", data: {
-    action: "click->share#share"
-  } %>
-
-  <%= content_tag(:p, "", class: "result", data: {
-    share_target: "result"
-  }) %>
-
+    <%= content_tag(:p, "", class: "result", data: {
+      share_target: "result"
+    }) %>
+  </div>  
 </div>

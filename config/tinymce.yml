@@ -1,4 +1,4 @@
-height: 500
+height: 300
 menubar: false
 toolbar:
   - undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | removeformat | help
