@@ -63,6 +63,16 @@
   height: 250px; 
   object-fit: cover;
   border-radius: 5%;
+  background-image: url(assets/images/placeholder1.png);
+  background-size: cover;
+}
+
+#recipe-thumbnail {
+  width: 250px;
+  height: 250px;
+  background-image: url(placeholder1.png);
+  background-position: center;
+
 }
 
 #recipes {

@@ -6,7 +6,7 @@
         turbo_frame: "recipes", 
         turbo_action: "advance", 
         controller: "search",
-        action: "input->search#submit"
+        action: "input->search#search"
         }) do |f| %>
       <%= text_field_tag :query, nil, placeholder: "Search ...", class: "test2" %>
       <%= submit_tag "", class: "btn" %>

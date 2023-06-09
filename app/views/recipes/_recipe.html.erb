@@ -3,6 +3,7 @@
     <%= image_tag recipe.image, alt: recipe.name, class: "recipe-image" %>
   <% end %>
   
+  
   <p class="my-5">
     <%= content_tag(:p, recipe.name, id:"recipe-name", data: {
       share_target: "name"
