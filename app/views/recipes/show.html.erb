@@ -1,46 +1,44 @@
-<% if notice.present? %>
-  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-<% end %>
+<div id ="recipe-listing">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
 
-<%= render @recipe %>
+  <%= render @recipe %>
 
 
-<% if @recipe.user == current_user %>
-  <div class= "edit-btn">
-    <%= image_tag "edit.svg", alt: "edit" %>
-    <%= link_to 'Edit', edit_recipe_path(@recipe) %>
-  </div> 
-<% end %>
+  <% if @recipe.user == current_user %>
+    <div class= "edit-btn">
+      <%= image_tag "edit.svg", alt: "edit" %>
+      <%= link_to 'Edit', edit_recipe_path(@recipe) %>
+    </div> 
+  <% end %>
 
-<div class= "fav-btn"> 
-  <% if user_signed_in? %>
-    <% if current_user.favourites.exists?(recipe_id: @recipe.id) %>
-      <%= turbo_frame_tag "favourite" do %>
-        <%= button_to favourite_path(recipe_id: @recipe.id), method: :delete, class: "unbookmark" do %>
-          <%= image_tag "unfavourite.svg", alt: "Unfavourite" %>
-          <p style="color:#e44650;"> Unfavourite </p>
+  <div class= "fav-btn"> 
+    <% if user_signed_in? %>
+      <% if current_user.favourites.exists?(recipe_id: @recipe.id) %>
+        <%= turbo_frame_tag "favourite" do %>
+          <%= button_to favourite_path(recipe_id: @recipe.id), method: :delete, class: "unbookmark" do %>
+            <%= image_tag "unfavourite.svg", alt: "Unfavourite" %>
+            <p style="color:#e44650;"> Unfavourite </p>
+          <% end %>
         <% end %>
-      <% end %>
-    <% else %>
-      <%= turbo_frame_tag "favourite" do %>
-        <%= button_to favourites_path(recipe_id: @recipe.id), class: "bookmark", method: :post do %>
-          <%= image_tag "favourite.svg", alt: "Favourite" %>
-           <p style="color:#4010de;"> Favourite </p>
+      <% else %>
+        <%= turbo_frame_tag "favourite" do %>
+          <%= button_to favourites_path(recipe_id: @recipe.id), class: "bookmark", method: :post do %>
+            <%= image_tag "favourite.svg", alt: "Favourite" %>
+            <p style="color:#4010de;"> Favourite </p>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</div>
-
-<% if @recipe.user == current_user %>
-  <div class="delete-btn">
-    <%= image_tag "delete.svg", alt: "delete" %> 
-    <%= button_to 'Delete', recipe_path(@recipe), method: :delete %>
   </div>
-<% end %>
 
-
-
-<%= link_to 'Back to recipes', recipes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 font-medium", style:"width: fit-content; margin-left:0;" %>
-
+  <% if @recipe.user == current_user %>
+    <div class="delete-btn">
+      <%= image_tag "delete.svg", alt: "delete" %> 
+      <%= button_to 'Delete', recipe_path(@recipe), method: :delete %>
+    </div>
+  <% end %>
+  <%= link_to 'Back to recipes', recipes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 font-medium", style:"width: fit-content; margin-left:0;" %>
+</div>
 

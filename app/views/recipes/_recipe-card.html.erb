@@ -1,16 +1,9 @@
-<%= link_to recipe do %>
-  <div id="recipe-card">
+<div id="recipe-card">
+  <%= link_to recipe, data: { turbo_frame: "_top" } do %>
     <% if recipe.image.attached? %>
       <%= image_tag recipe.image, alt: recipe.name, class: "recipe-image" %>
     <% end %>
-
-    <h2>
-      <%= recipe.name %>
-    </h2>
-
-    <h3>
-      By <%= recipe.user.username %>
-    </h3>
-
-  </div>
-<% end %>
+    <h2><%= recipe.name %></h2>
+    <h3> By <%= recipe.user.username %></h3>
+  <% end %>
+</div>
