@@ -6,7 +6,10 @@ How to run the project locally
 4. Rails db:seed
 5. rails db:migrate
 
+![Discover](https://github.com/jackmahony/Cook-Book/assets/21033434/cda80f09-4731-4e88-9c15-cf4534a97b89)
 
-[Screenshot](Screen%20Shot%202023-06-13%20at%2010.22.40%20am.png)
+![My Recipes](https://github.com/jackmahony/Cook-Book/assets/21033434/01f56ff8-2c80-4819-bb19-2bbfdeed3a1f)
+
+![Favourites](https://github.com/jackmahony/Cook-Book/assets/21033434/3b88c627-c118-4182-bde3-4a07c1b18d54)
 
 * ...
