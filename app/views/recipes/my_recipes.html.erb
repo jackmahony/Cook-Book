@@ -1,13 +1,11 @@
-<div class="min-w-full">
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">My Recipes</h1>
-    <%= link_to 'New recipe', new_recipe_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+<div class="flex-row pl-10">
+  <div class="recipe-header">
+    <h1>My Recipes</h1>
   </div>
+    <div class="recipe-forms flex items-center mb-2 mt-4">
+      <%= link_to 'New recipe', new_recipe_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
   <%= turbo_frame_tag "recipes" do %>
     <%= render partial: 'recipes/recipe-card', collection: @recipes, as: :recipe %>
   <% end %>
 </div>  
-
-
-
-

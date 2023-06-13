@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+User.create!(email: "test1@gmail.com", username: "Emma", password: "password")
+User.create!(email: "test2@gmail.com", username: "Sarah", password: "password")
+User.create!(email: "test3@gmail.com", username: "Bob", password: "password")
+User.create!(email: "test4@gmail.com", username: "Mark", password: "password")
 Recipe.create!(name: "Pasta Salad", category: "Side Dish", cooktime: 30, serving: 6, healthrating: 3, difficulty: 2, user_id: 1, description: "A light and refreshing pasta salad that is perfect for a summer picnic.")
 Recipe.create!(name: "Grilled Salmon", category: "Main Course", cooktime: 20, serving: 4, healthrating: 4, difficulty: 2, user_id: 2, description: "A healthy and flavorful grilled salmon dish that is perfect for a weeknight meal.")
 Recipe.create!(name: "Roasted Chicken", category: "Main Course", cooktime: 1 , serving: 4, healthrating: 3, difficulty: 2, user_id: 3, description: "A classic roasted chicken dish that is perfect for a Sunday dinner.")

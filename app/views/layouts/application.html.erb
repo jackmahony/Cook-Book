@@ -17,7 +17,7 @@
       <nav>
         <ul class="flex">
            <li class="mr-6">
-            <%= link_to 'All Recipes', recipes_path, class: "text-black-500 hover:text-blue-800#{' active' if current_page?(root_path)}" %>
+            <%= link_to 'Discover', root_path, class: "text-black-500 hover:text-blue-800#{' active' if current_page?(root_path)}" %>
           </li>
           <li class="mr-6">
             <%= link_to 'My Recipes', my_recipes_path, class: "text-black-500 hover:text-blue-800#{' active' if current_page?(my_recipes_path)}" %>

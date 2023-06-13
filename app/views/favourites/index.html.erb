@@ -1,5 +1,7 @@
-<div class="min-w-full">
-    <h1 class="font-bold text-4xl">Favourites</h1>
+<div class="flex-row pl-10">
+    <div class="recipe-header">
+        <h1>Favourites</h1>
+    </div>
 
     <% if @myfavourites.any? %>
     <div id="recipes">
@@ -9,4 +11,3 @@
     <p>You have no favourite recipes yet.</p>
     <% end %>
 </div>    
-

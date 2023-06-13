@@ -1,24 +1,23 @@
-<div class="min-w-full">
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">All Recipes</h1>
-
+<div class="flex-row pl-10" id="collapse">
+  <div class="recipe-header">
+    <h1>Discover Recipes</h1>
+  </div>
+  <div class="recipe-forms flex items-center mb-2 mt-4">
+    <%= link_to 'New recipe', new_recipe_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium mr-2" %>
     <%= form_with(url: recipes_path, method: :get, data: { 
         turbo_frame: "recipes", 
         turbo_action: "advance", 
         controller: "search",
         action: "input->search#search"
         }) do |f| %>
-      <%= text_field_tag :query, nil, placeholder: "Search ...", class: "test2" %>
+      <%= text_field_tag :query, nil, placeholder: "Search ...", class: "rounded ml-2" %>
       <%= submit_tag "", class: "btn" %>
     <% end %>
-
-    <%= link_to 'New recipe', new_recipe_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
-    
   <%= turbo_frame_tag "recipes" do %>
-    <%= render partial: 'recipes/recipe-card', collection: @recipes, as: :recipe %>
-  <% end %>
-</div>  
+  <%= render partial: 'recipes/recipe-card', collection: @recipes, as: :recipe %>
+<% end %>
+</div>
 
 
 
